@@ -21,7 +21,7 @@ def RotateClockwise():
 def RotateAntiClockwise():
     motorSpeed = slider.get()
     angle = int(angleSet.get())
-    angle *= -1
+    angle *= (-1)
     print(motorSpeed, angle)
     board.stepper_write(motorSpeed, num_steps)
 
@@ -49,10 +49,10 @@ textAngle = Label(root, text = "", fg = "red")
 textAngle.grid(row = 4, column = 1)
 
 #buttons
-btn_forward = tk.Button(root, text = "Clockwise", command = RotateClockwise())
+btn_forward = tk.Button(root, text = "Clockwise", command = RotateClockwise)
 btn_forward.grid(row = 5, column = 0)
 
-btn_backward = tk.Button(root, text = "Anticlockwise", command = RotateAntiClockwise())
+btn_backward = tk.Button(root, text = "Anticlockwise", command = RotateAntiClockwise)
 btn_backward.grid(row = 5, column = 1)
 
 #size of window
