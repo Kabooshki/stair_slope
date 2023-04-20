@@ -15,15 +15,13 @@ root.title("Arduino Controller")
 def RotateClockwise():
     motorSpeed = slider.get()
     angle = int(angleSet.get())
-    print(motorSpeed, angle)
-    board.stepper_write(motorSpeed, num_steps)
+    board.stepper_write(motorSpeed, angle)
     
 def RotateAntiClockwise():
     motorSpeed = slider.get()
     angle = int(angleSet.get())
     angle *= (-1)
-    print(motorSpeed, angle)
-    board.stepper_write(motorSpeed, num_steps)
+    board.stepper_write(motorSpeed, angle)
 
 # #canvas
 # canvas = Canvas(width = 350, height=255)
@@ -41,7 +39,7 @@ slider.grid(row = 2, column = 0, columnspan= 2)
 angleLabel = Label(root, text = "Angle (in deg)")
 angleLabel.grid(row = 3, column = 0)
 angleSet = Entry(root, width = 10)
-angleSet.insert(0, 90)
+#angleSet.insert(0, 90)
 angleSet.grid(row = 3, column = 1)
 
 #text box for no angle input
