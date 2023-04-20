@@ -3,7 +3,7 @@ from pymata4 import pymata4
 from tkinter import *
 import tkinter as tk
 
-num_steps = 512
+num_steps = 32
 pins = [8,9,10,11]
 board = pymata4.Pymata4()
 
@@ -15,13 +15,13 @@ root.title("Arduino Controller")
 def RotateClockwise():
     motorSpeed = slider.get()
     angle = int(angleSet.get())
-    board.stepper_write(motorSpeed, angle)
+    board.stepper_write(motorSpeed * 50, int(angle*5.625))
     
 def RotateAntiClockwise():
     motorSpeed = slider.get()
     angle = int(angleSet.get())
     angle *= (-1)
-    board.stepper_write(motorSpeed, angle)
+    board.stepper_write(motorSpeed * 50, int(angle*5.625))
 
 # #canvas
 # canvas = Canvas(width = 350, height=255)
