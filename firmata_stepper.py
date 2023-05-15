@@ -4,8 +4,8 @@ from tkinter import *
 import tkinter as tk
 
 num_steps = 32
-pins1 = [8,9,10,11]
-pins2 = [4,5,6,7]
+pins1 = [2,3,4,5]
+pins2 = [6,7,8,9]
 board = pymata4.Pymata4()
 
 root = Tk()
@@ -16,8 +16,10 @@ def RotateClockwise():
     angle = int(angleSet.get())
     board.set_pin_mode_stepper(num_steps, pins1)
     board.stepper_write(motorSpeed * 50, int(angle*5.625))
+    board.stepper_write(motorSpeed * 50, 0)
     board.set_pin_mode_stepper(num_steps, pins2)
     board.stepper_write(motorSpeed * 50, int(angle*(-5.625)))
+    board.stepper_write(motorSpeed * 50, 0)
     
 def RotateAntiClockwise():
     motorSpeed = slider.get()
@@ -25,8 +27,10 @@ def RotateAntiClockwise():
     angle *= (-1)
     board.set_pin_mode_stepper(num_steps, pins1)
     board.stepper_write(motorSpeed * 50, int(angle*5.625))
+    board.stepper_write(motorSpeed * 50, 0)
     board.set_pin_mode_stepper(num_steps, pins2)
     board.stepper_write(motorSpeed * 50, int(angle*(-5.625)))
+    board.stepper_write(motorSpeed * 50, 0)
 
 # #canvas
 # canvas = Canvas(width = 350, height=255)
