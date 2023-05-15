@@ -1,8 +1,7 @@
 import time
 from pymata4 import pymata4
 import tkinter as tk
-#import step_controler_2, step_controler_3
-import os
+import step_controler_2, step_controler_3
 
 # num_steps = 32
 # pins1 = [2, 4, 3, 5]
@@ -39,25 +38,23 @@ def on_button_click(event):
         canvas.itemconfigure(button, fill='#F5C726')
         canvas.itemconfigure(button_text, text="Deploying...")
         canvas.itemconfigure(button, state='disabled')
-        os.startfile('step_controller_3.py')
         root.after(200, lambda: on_yellow_timeout_deploying())
     elif current_color == '#36F526':
         canvas.itemconfigure(button, fill='#F5C726')
         canvas.itemconfigure(button_text, text="Please wait...")
         canvas.itemconfigure(button, state='disabled')
-        os.startfile('step_controller_2.py')
         root.after(200, lambda: on_yellow_timeout_unfold())
     # do nothing if button color is yellow and it's disabled
 
 def on_yellow_timeout_deploying():
-    #step_controler_3.main()
+    step_controler_3.main()
     canvas.itemconfigure(button, fill='#36F526')
     canvas.itemconfigure(button_text, text="GO!")
     canvas.itemconfigure(button, state='normal')
     active_label.config(text="\u0332".join("Status:") + " Active")  # set "Active" label when button is green
 
 def on_yellow_timeout_unfold():
-    #step_controler_2.main()
+    step_controler_2.main()
     canvas.itemconfigure(button, fill='red')
     canvas.itemconfigure(button_text, text="Deploy")
     canvas.itemconfigure(button, state='normal')

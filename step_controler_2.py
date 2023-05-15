@@ -7,6 +7,7 @@ def main():
     pins2 = [6, 8, 7, 9]
     #pins3 = [10, 12, 11, 13]
     board = pymata4.Pymata4(com_port="COM6")
+    board.shutdown_on_exception = False
 
     def unfold():
         board.start()
@@ -51,5 +52,3 @@ def main():
         # time.sleep(0.2)
         # board.stepper_write(motorSpeed * 50, int(angle*5.625))
     unfold()
-
-main()
