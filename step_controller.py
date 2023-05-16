@@ -13,21 +13,21 @@ root = tk.Tk()
 root.title("Smart Slopes Ver. 1.0")
 root.geometry("450x500")
 root.resizable(None, None)
-root.configure(bg='#E1DCDC')
+root.configure(bg='#D5EBEA')
 
 # create a canvas
-canvas = tk.Canvas(root, width=220, height=270, bg='#E1DCDC', highlightbackground='#E1DCDC')
+canvas = tk.Canvas(root, width=220, height=390, bg='#D5EBEA', highlightbackground='#D5EBEA')
 canvas.pack()
 
 # create a circular button on canvas
-button = canvas.create_oval(20, 20, 210, 210, fill='red', width=3)
+button = canvas.create_oval(20, 50, 210, 240, fill='red', width=3)
 
 # create a text label on button
-button_text = canvas.create_text(112, 113, text="Deploy", fill='black',
+button_text = canvas.create_text(112, 143, text="Deploy", fill='black',
                                  font=('Helvetica', '20', 'underline'))
 
 # create "Active/Inactive" label
-active_label = tk.Label(root, text="\u0332".join("Status:") + " Inactive", font=('Helvetica', '12'), bg='#E1DCDC')
+active_label = tk.Label(root, text="\u0332".join("Status:") + " Inactive", font=('Helvetica', '12'), bg='#D5EBEA', fg='#2D9B94')
 active_label.pack(padx=10, pady=10)
 #active_label.pack(side=tk.LEFT, padx=10, pady=10)
 
@@ -43,7 +43,7 @@ def on_button_click(event):
         canvas.itemconfigure(button, fill='#F5C726')
         canvas.itemconfigure(button_text, text="Please wait...")
         canvas.itemconfigure(button, state='disabled')
-        root.after(200, lambda: on_yellow_timeout_unfold())
+        root.after(4000, lambda: on_yellow_timeout_unfold())
     # do nothing if button color is yellow and it's disabled
 
 def on_yellow_timeout_deploying():
